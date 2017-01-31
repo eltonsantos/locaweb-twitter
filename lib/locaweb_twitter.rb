@@ -71,17 +71,19 @@ class LocawebTwitter
     tweets_list
   end
 
-  # Users who most mentioned the Locaweb
+  # Users who most followers
   def top_users
     @users_list.sort_by{ |u| u.followers }
   end
 
   private
+  # Extract what need of tweet
   def extract_tweet(tweet_json)
     tweet = Tweet.new(tweet_json["id"],tweet_json["text"],tweet_json["retweet_count"],tweet_json["favorited"],tweet_json["created_at"])
     tweet
   end
 
+  # Extract what need of user
   def extract_user(user_json)
     user = User.new(user_json["id"], user_json["screen_name"], user_json["followers_count"])
     user
