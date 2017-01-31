@@ -23,6 +23,10 @@ The following tests were performed using RSpec:
 - Has a version number
 - Has a responde HTTP 200
 - Does use JSON
+- Is a valid username
+- Renders the index page
+- Renders the most mentions page
+- Is Locaweb id 42
 
 ## How it was developed 
 

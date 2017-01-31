@@ -1,4 +1,5 @@
 require "spec_helper"
+require "locaweb_twitter"
 
 RSpec.describe LocawebTwitter do
 
@@ -22,7 +23,7 @@ RSpec.describe LocawebTwitter do
     end
 
     it 'Renders the index page' do
-      get :index
+      get "/"
       expect(response).to render_template('/')
     end
 

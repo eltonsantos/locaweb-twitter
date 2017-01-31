@@ -45,6 +45,7 @@ class LocawebTwitter
 
   end
 
+  # Get who tweet to Locaweb and reject itself (id: 42)
   def remove_tweets_in_reply_to_old_mentions!
     @all_tweets["statuses"].reject!{ |x| x["in_reply_to_user_id"] == 42 }
   end
