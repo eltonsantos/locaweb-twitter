@@ -40,6 +40,7 @@ class LocawebTwitter
       @all_tweets = JSON.parse(response.body)
     else
       puts response.message
+      puts response.code
       puts "#{address.request_uri} => #{response.code}"
     end
 

@@ -3,18 +3,21 @@ require "locaweb_twitter"
 
 RSpec.describe LocawebTwitter do
 
+  # Tests doesn't work because the specific configs of the Sinatra...
   context 'Generics tests' do
     it "Has a version number" do
       expect(LocawebTwitter::VERSION).not_to be nil
     end
 
     it "Has response HTTP 200" do
-      expect(response.status).to have_http_status(200)
+      response = Net::HTTP.new("http://tweeps.locaweb.com.br", "4567")
+      expect(response.code).to have_http_status(200)
     end
 
     it "Does use JSON" do
       should respond_with_content_type(:json)
     end
+
   end
 
   context 'Specific tests of application' do
