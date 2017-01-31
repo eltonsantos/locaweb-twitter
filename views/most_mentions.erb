@@ -1,0 +1,43 @@
+<!-- Begin page content - Most Mentions -->
+<% @top_users.each do |user| %>
+<ul>
+    <li>
+      <div class="well container-tweet">
+        
+        <a href="http://twitter.com/<%= user.screen_name %>" target="blank">
+          <b><%= "#{user.screen_name}" %></b>
+        </a>
+        
+        <br />
+          <%= "#{user.followers} followers" %>
+        <br />
+
+    <% user.sorted_tweets.each do |tweet| %>
+        <p>
+          <%= "#{tweet.content.gsub('@locaweb', '<mark>@locaweb</mark>')}" %> 
+        </p>
+
+        <div class="pull-right">
+
+          <% if tweet.favorited %>
+            <i class="glyphicon glyphicon-star" style="color: #3c763d;"></i>
+            <span style="color:#3c763d;">This tweet was favorited</span>
+          <% end %>
+          
+          &nbsp;&nbsp;
+          <i class="glyphicon glyphicon-retweet" style="color: #333;"></i>
+          <%= "Was retweeted #{tweet.retweet_count} times" %>
+          &nbsp;&nbsp;
+
+          <a href="http://twitter.com/<%= tweet.user.screen_name %>/status/<%= tweet.id %>" target="blank">
+            <i class="glyphicon glyphicon-calendar" style="color: #337ab7;"></i>
+            <%=  "#{ DateTime.parse(tweet.created_at).strftime('Posted on %m/%d/%Y at %I:%M%p') }" %>
+          </a>
+
+        </div>     
+
+      </div>
+    </li>
+  <% end %>
+</ul>
+<% end %>

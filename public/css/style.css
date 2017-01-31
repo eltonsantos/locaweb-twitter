@@ -1,0 +1,30 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body { background-color: #E8F4FB;}
+
+ul { padding: 0px; }
+
+li { list-style-type: none; }
+
+.container {
+  width: auto;
+  max-width: 680px;
+  padding: 0 15px;
+}
+
+.container-tweet {
+  background-color: #fff;
+  border: 1px solid #1dcaff;
+}
+
+.container-tweet p {
+  color: #00aced;
+}
+
+.container-tweet p a {
+  /*color:  #c0deed;*/
+  color: #0084b4;
+}
