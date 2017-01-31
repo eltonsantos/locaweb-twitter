@@ -25,16 +25,16 @@ class User
  
   # Tweets most retweeted
   def most_retweeted 
-    @tweets.reject{|x| x.retweet_count == 0}.sort_by{|x| x.retweet_count}.reverse
+    @tweets.reject{ |x| x.retweet_count == 0 }.sort_by{ |x| x.retweet_count }.reverse
   end
 
   # Favorited tweets
   def favorited_tweets 
-    @tweets.reject{|x| !x.favorited || (x.retweet_count > 0 && x.favorited)}.sort_by{|x| x.retweet_count}.reverse
+    @tweets.reject{ |x| !x.favorited || (x.retweet_count > 0 && x.favorited) }.sort_by{ |x| x.retweet_count }.reverse
   end
 
   def others_tweets
-    @tweets.reject{|x| x.favorited || x.retweet_count > 0}
+    @tweets.reject{ |x| x.favorited || x.retweet_count > 0 }
   end
 
 end

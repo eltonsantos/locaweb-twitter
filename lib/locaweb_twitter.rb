@@ -45,10 +45,6 @@ class LocawebTwitter
 
   end
 
-  # def change_color_text
-  #   content.gsub("@locaweb", "<mark>@locaweb</mark>");
-  # end
-
   def remove_tweets_in_reply_to_old_mentions!
     @all_tweets["statuses"].reject!{ |x| x["in_reply_to_user_id"] == 42 }
   end

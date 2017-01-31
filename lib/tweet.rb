@@ -2,7 +2,7 @@ class Tweet
 
   attr_reader :id, :user, :content, :retweet_count, :favorited, :created_at
 
-  # Initialize the variables
+  # Initialize tweet attributes
   def initialize(id, content, retweet_count, favorited, created_at)
     @id = id
     @content = content
