@@ -15,34 +15,52 @@ RSpec.describe LocawebTwitter do
 
     it "Has response HTTP 200" do
       get "/"
-
-      expect(last_response.body).to eq("")
-      expect(last_response.status).to eq 200
+      expect(last_response).to have_http_status(:success)
     end
 
-    it "Does use JSON" do
-      should respond_with_content_type(:json)
+    before(:each) do
+      @factory_json = LocawebTwitter.new
+      @parse_response_to_json = LocawebTwitter.new
+    end
+
+    it "Does use JSON valid?" do
+      json_valid = @parse_response_to_json.json_valid?(JSON)
+
+      expect(json_valid).to be true
     end
 
   end
 
   context 'Specific tests of application' do
-    it 'Is a valid username' do
-      expect(LocawebTwitter.new('http://tweeps.locaweb.com.br/', { headers: { username: 'eltonaxl@hotmail.com' } }).connect).to have_requested(:get, "http://tweeps.locaweb.com.br/").with(headers: { 'Username' => 'eltonaxl@hotmail.com' })
-    end
 
     it 'Renders the index page' do
-      get '/'
-      expect(last_response.body).to eq(true)
+      get "/"
+      last_response.body.should include("Teste")
     end
 
     it 'Renders the most mentions page' do
-      get '/most_mentions'
-      expect(last_response.body).to be_ok
+      get "/most_mentions"
+      last_response.body.should include("Teste")
     end
 
     it "Is Locaweb id 42" do
       expect(id = 42).to eq(42)
+    end
+
+    it 'Send a Tweet' do
+      params = Hash.new
+      params[:id] = 2
+      params[:user] = nil
+      params[:retweets] = 10
+      params[:likes] = 20
+      params[:text] = "Hello Word"
+      params[:date] = "Mon Sep 24 03:35:21 +0000 2012"
+      expect{Tweet.new(params)}.to raise_error(ArgumentError, /Error - user nil/)
+    end
+
+    it "Have a valid api url?" do
+      URL_API = "http://tweeps.locaweb.com.br/tweeps"
+      expect(LocawebTwitter::URL_API).to eq "http://tweeps.locaweb.com.br/tweeps"
     end
 
   end
