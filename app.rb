@@ -14,7 +14,8 @@ def init
   @top_users = locaweb_twitter.top_users
 end
 
-def main
+# https://www.phusionpassenger.com/library/deploy/config_ru.html#sinatra
+class MyApp < Sinatra::Base
   get '/' do
     init
     erb :most_relevants, layout: :index
@@ -25,6 +26,3 @@ def main
     erb :most_mentions, layout: :index
   end
 end
-
-# Get the last return
-main
