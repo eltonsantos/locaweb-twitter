@@ -10,7 +10,7 @@ Application that list tweets most relevants and the users who made the most ment
 
 ## Installation
 
-Clone it, in project's folder run `bundle install` and run `rackup -p 4567` or `ruby app.rb`.
+Clone it, in project's folder run `bundle install` and run `ruby app.rb`.
 
 ## Usage
 
@@ -22,11 +22,13 @@ For use test run `rspec` in terminal.
 The following tests were performed using RSpec:
 - Has a version number
 - Has a responde HTTP 200
-- Does use JSON
+- Does use JSON valid
 - Is a valid username
 - Renders the index page
 - Renders the most mentions page
 - Is Locaweb id 42
+- Have a valid api url
+- Send a Tweet
 
 ## How it was developed 
 

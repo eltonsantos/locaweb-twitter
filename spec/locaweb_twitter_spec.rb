@@ -23,7 +23,7 @@ RSpec.describe LocawebTwitter do
       @parse_response_to_json = LocawebTwitter.new
     end
 
-    it "Does use JSON valid?" do
+    it "Does use JSON valid" do
       json_valid = @parse_response_to_json.json_valid?(JSON)
 
       expect(json_valid).to be true
