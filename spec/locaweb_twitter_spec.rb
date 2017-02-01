@@ -2,16 +2,22 @@ require "spec_helper"
 require "locaweb_twitter"
 
 RSpec.describe LocawebTwitter do
+  include Rack::Test::Methods
 
-  # Tests doesn't work because the specific configs of the Sinatra...
+  def app
+    Sinatra::Application
+  end
+
   context 'Generics tests' do
     it "Has a version number" do
       expect(LocawebTwitter::VERSION).not_to be nil
     end
 
     it "Has response HTTP 200" do
-      response = Net::HTTP.new("http://tweeps.locaweb.com.br", "4567")
-      expect(response.code).to have_http_status(200)
+      get "/"
+
+      expect(last_response.body).to eq("")
+      expect(last_response.status).to eq 200
     end
 
     it "Does use JSON" do
@@ -26,13 +32,13 @@ RSpec.describe LocawebTwitter do
     end
 
     it 'Renders the index page' do
-      get "/"
-      expect(response).to render_template('/')
+      get '/'
+      expect(last_response.body).to eq(true)
     end
 
     it 'Renders the most mentions page' do
-      get :most_mentions
-      expect(response).to render_template('/most_mentions')
+      get '/most_mentions'
+      expect(last_response.body).to be_ok
     end
 
     it "Is Locaweb id 42" do

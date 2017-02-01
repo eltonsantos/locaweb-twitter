@@ -1,6 +1,7 @@
 require "bundler/setup"
 require "version"
-
+require 'rspec'
+require 'rack/test'
 require 'sinatra'
 require 'json'
 
