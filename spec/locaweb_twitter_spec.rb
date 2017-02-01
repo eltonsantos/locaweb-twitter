@@ -43,6 +43,11 @@ RSpec.describe LocawebTwitter do
     it 'Renders the most mentions page' do
     end
 
+    it "returns status 404" do      
+      post "/"
+      expect(last_response.status).to eq 404
+    end
+
     it "Is Locaweb id 42" do
       expect(id = 42).to eq(42)
     end
