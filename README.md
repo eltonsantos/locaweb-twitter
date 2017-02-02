@@ -10,7 +10,11 @@ Application that list tweets most relevants and the users who made the most ment
 
 ## Installation
 
-Clone it, in project's folder run `bundle install` and run `ruby app.rb`.
+On terminal:
+1. `git clone git@github.com:eltonsantos/locaweb-twitter`.
+2. `cd locaweb-twitter`.
+3. `bundle install`.
+4. run `rackup -p 4567`.
 
 ## Usage
 
@@ -28,7 +32,6 @@ The following tests were performed using RSpec:
 - Renders the most mentions page
 - Is Locaweb id 42
 - Have a valid api url
-- Send a Tweet
 
 ## How it was developed 
 

@@ -54,10 +54,6 @@ RSpec.describe LocawebTwitter do
       expect(last_response.status).to eq 404
     end
 
-    it "Is Locaweb id 42" do
-      expect(id = 42).to eq(42)
-    end
-
     it 'Send a Tweet' do
     end
 
