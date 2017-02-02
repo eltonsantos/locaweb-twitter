@@ -12,10 +12,11 @@ Application that list tweets most relevants and the users who made the most ment
 
 
 On terminal:
-1 `git clone git@github.com:eltonsantos/locaweb-twitter`.
-2 `cd locaweb-twitter`.
-3 `bundle install`.
-4 run `rackup -p 4567`.
+
+1. `git clone git@github.com:eltonsantos/locaweb-twitter`.
+2. `cd locaweb-twitter`.
+3. `bundle install`.
+4. run `rackup -p 4567`.
 
 ## Usage
 
